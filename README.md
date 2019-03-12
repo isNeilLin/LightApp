@@ -122,6 +122,6 @@ JS中，通过`eventListener.on(方法名, (返回值)=>{})`接受Bridge有返�
 
 1、 `go-bindata -o=asset/asset.go -pkg=asset src/...`
 
-2、 `xgo --targets=darwin-10.10/.,windows/. .`
+2、 `xgo -out ./build/ --targets=darwin-10.10/.,windows/. .`
 
 > [xgo文档](https://github.com/karalabe/xgo)
