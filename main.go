@@ -8,6 +8,7 @@ import (
   "mime"
   "path/filepath"
   "os"
+  "os/user"
   "github.com/zserge/webview"
   "io"
   "runtime"
@@ -47,9 +48,11 @@ func initServer() string {
 type Bridge struct {
   Os string          `json:"os"`
   Arch string        `json:"arch"`
-  Hostname string    `json:"hostname"`
+  Username string    `json:"username"`
   TempPath string    `json:"tempPath"`
+  HomePath string 	 `json:"homePath"`
   CurrentPath string `json:"currentPath"`
+  Storagepath string `json:"storagePath"`
 }
 
 type Config struct {
@@ -63,14 +66,25 @@ type Config struct {
   Icon string
 }
 
-func (bridge *Bridge)  Init(){
-  hostname, _ := os.Hostname()
+func (bridge *Bridge)  Init(config Config){
+  self, _ := user.Current()
   wd, _ := os.Getwd()
   bridge.Os = runtime.GOOS
   bridge.Arch = runtime.GOARCH
-  bridge.Hostname = hostname
+  bridge.Username = self.Username
   bridge.CurrentPath = wd
   bridge.TempPath = os.TempDir()
+  bridge.HomePath = self.HomeDir
+  if runtime.GOOS == "darwin" {
+	  bridge.Storagepath = filepath.Join(self.HomeDir, "Library", "Application Support", config.Name)
+  } else if runtime.GOOS == "windows" {
+	  bridge.Storagepath = filepath.Join(os.Getenv("APPDATA"), config.Name)
+  } else if runtime.GOOS == "windows" {
+	  bridge.Storagepath = filepath.Join(os.Getenv("XDG_CONFIG_HOME"), config.Name)
+  }
+  if _, err := os.Stat(bridge.Storagepath); !os.IsNotExist(err) {
+  	os.MkdirAll(bridge.Storagepath, 0777)
+  }
 }
 
 func (bridge *Bridge)  Exit(){
@@ -211,6 +225,7 @@ func main()  {
   asset.RestoreAssets("./","./src")
   data, _ := asset.Asset("src/config.json")
   config := Config{}
+  bridge := Bridge{}
   json.Unmarshal(data, &config)
   url := initServer()
   W = webview.New(webview.Settings{
@@ -250,6 +265,7 @@ window.eventListener = {
     }
 }`)
   })
-  W.Bind("Bridge", &Bridge{})
+  bridge.Init(config)
+  W.Bind("Bridge", &bridge)
   W.Run()
 }

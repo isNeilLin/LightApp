@@ -51,15 +51,19 @@
 
 - 属性
     
-    `os`： 系统平台，Mac：`darwin`， Windows： `windows`， Linux: `linux`
+    `data.os`： 系统平台，Mac：`darwin`， Windows： `windows`， Linux: `linux`
     
-    `arch`: 系统架构
+    `data.arch`: 系统架构
     
-    `hostname`： 系统用户
+    `data.username`： 用户登录名
     
-    `tempPath`： 临时路径
+    `data.storagePath`：系统分配的程序存储路径
     
-    `currentPath`： 程序当前执行路径
+    `data.homePath`: home路径
+    
+    `data.tempPath`： 临时路径
+    
+    `data.currentPath`： 程序当前执行路径
 
 - 方法
 
