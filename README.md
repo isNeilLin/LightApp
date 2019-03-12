@@ -2,6 +2,10 @@
 
 使用HTML，CSS，JS开发轻量级跨平台桌面APP开发模式（基于[webview](https://github.com/zserge/webview)）。
 
+谈到使用HTML/CSS/JS开发跨平台的桌面应用，不得不提起[Electron](https://electronjs.org), 但是由于Electron内置了Node.js和Chromium，所以Electron开发的程序即使只有一个很简单的页面，体积也非常大，普遍100M以上。
+
+前段时间偶然发现了一个跨平台的[webview库](https://github.com/zserge/webview)，觉得可以做些文章。就使用这个[webview库](https://github.com/zserge/webview)的golang的[Binding API](https://godoc.org/github.com/zserge/webview)，在JS中注入一个Bridge,提供了一些方法。当然和Electron的完整性不能相提并论，不过开发一些内部使用的简单桌面APP是可以胜任的。不过打包之后大小基本和静态资源大小持平，以示例Demo为例，打包之后只有十几M的大小。
+
 
 ### 环境配置
 
