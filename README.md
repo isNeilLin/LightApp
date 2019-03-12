@@ -48,9 +48,13 @@
 - 属性
     
     `os`： 系统平台，Mac：`darwin`， Windows： `windows`， Linux: `linux`
+    
     `arch`: 系统架构
+    
     `hostname`： 系统用户
+    
     `tempPath`： 临时路径
+    
     `currentPath`： 程序当前执行路径
 
 - 方法
