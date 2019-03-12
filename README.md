@@ -112,5 +112,6 @@ JS中，通过`eventEmitter.on(方法名, (返回值)=>{})`接受Bridge有返回
 
 ### 打包
 
-1， `go-bindata -o=asset/asset.go -pkg=asset assets/...`
-2， `xgo --targets=darwin-10.10/.,windows/. .`
+1、 `go-bindata -o=asset/asset.go -pkg=asset assets/...`
+
+2、 `xgo --targets=darwin-10.10/.,windows/. .`
