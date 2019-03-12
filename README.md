@@ -9,7 +9,10 @@
 
 项目需要在GOPATH对应的`src`路径下(例如：GOPATH为:`/Users/username/Documents/go`, 则项目对应路径应为:`/Users/username/Documents/go/src/light-app`)
 
+
 安装GO依赖： `go get`
+
+跨平台打包需要安装Docker。[docker安装](https://www.docker.com/products/docker-desktop)
 
 ### 起步
 
@@ -92,3 +95,8 @@
         接收返回值： `eventEmitter.on('writeFile', (err)=>{})` 
     
 JS中，通过`eventEmitter.on(方法名, (返回值)=>{})`接受Bridge有返回值方法的返回值。  
+
+### 打包
+
+1， `go-bindata -o=asset/asset.go -pkg=asset assets/...`
+2， `xgo --targets=darwin-10.10/.,windows/. .`
