@@ -43,7 +43,7 @@
   "resizeable": true,       // 是否可缩放
   "debug": true,            // debug模式
   "icon": "Light.icns",     // App图标路径
-  "output_path": "./build/"  // 输出路径
+  "output_path": "./build"  // 输出路径
   "buildTarget": [
     {
       "os": "darwin",       // 打包平台

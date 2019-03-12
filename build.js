@@ -28,7 +28,7 @@ function main() {
         return `${os}/${target.arch}`
     })
     targets = `--targets=${targets.join(',')}`
-    compile = spawn("xgo", ["-out", config.output_path, targets, "."])
+    compile = spawn("xgo", ["-out", `${config.output_path}/${config.name}`, targets, "."])
     compile.on('error', function (err) {
         console.log(err)
     })
