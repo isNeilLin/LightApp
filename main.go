@@ -30,7 +30,7 @@ func initServer() string {
       path := r.URL.Path
       if (len(path) == 1 && path == "/") {
         w.Header().Add("Content-Type", mime.TypeByExtension("html"))
-        data, _ := asset.Asset("assets/index.html")
+        data, _ := asset.Asset("src/index.html")
         io.Copy(w, bytes.NewBuffer(data))
       } else {
         w.Header().Add("Content-Type", mime.TypeByExtension(filepath.Ext(path)))
@@ -48,7 +48,7 @@ type Bridge struct {
   Os string          `json:"os"`
   Arch string        `json:"arch"`
   Hostname string    `json:"hostname"`
-  TempPath string    `json:"tempPir"`
+  TempPath string    `json:"tempPath"`
   CurrentPath string `json:"currentPath"`
 }
 
@@ -208,8 +208,8 @@ func ExcuteJS(js string)  {
 }
 
 func main()  {
-  asset.RestoreAssets("./","./assets")
-  data, _ := asset.Asset("assets/config.json")
+  asset.RestoreAssets("./","./src")
+  data, _ := asset.Asset("src/config.json")
   config := Config{}
   json.Unmarshal(data, &config)
   url := initServer()

@@ -20,7 +20,7 @@
 
 ```
 - main.go // 主文件
-- assets
+- src
     - config.json  // 项目配置文件
     - index.html   // 入口HTML
     - js/css/img   // 相关静态资源
@@ -82,36 +82,36 @@
     *有返回值*
     
     `Bridge.getEnv(key)`: 获取环境变量值
-        接收返回值： `eventEmitter.on('getEnv', (value)=>{})`
+        接收返回值： `eventListener.on('getEnv', (value)=>{})`
         
     `Bridge.makeDir(path)`: 创建文件夹
-        接收返回值： `eventEmitter.on('makeDir', (err)=>{})`
+        接收返回值： `eventListener.on('makeDir', (err)=>{})`
         
     `Bridge.remove(path)`: 删除文件
-        接收返回值： `eventEmitter.on('remove', (err)=>{})`
+        接收返回值： `eventListener.on('remove', (err)=>{})`
         
     `Bridge.removeAll(path)`: 删除文件夹
-        接收返回值： `eventEmitter.on('removeAll', (err)=>{})`
+        接收返回值： `eventListener.on('removeAll', (err)=>{})`
         
     `Bridge.renameFile(oldpath, newpath)`: 重命名文件
-        接收返回值： `eventEmitter.on('renameFile', (err)=>{})`
+        接收返回值： `eventListener.on('renameFile', (err)=>{})`
         
-    `Bridge.openFile(path)`: 打开文件
-        接收返回值： `eventEmitter.on('openFile', (jsonString)=>{})`
+    `Bridge.openFile(dialogTitle)`: 打开文件
+        接收返回值： `eventListener.on('openFile', (jsonString)=>{})`
 
-    `Bridge.openDir(path)`: 打开文件夹
-        接收返回值： `eventEmitter.on('openDir', (jsonString)=>{})` 
+    `Bridge.openDir(dialogTitle)`: 打开文件夹
+        接收返回值： `eventListener.on('openDir', (jsonString)=>{})` 
         
     `Bridge.readFile(path)`： 读取文件
-        接收返回值： `eventEmitter.on('readFile', (fileContent)=>{})` 
+        接收返回值： `eventListener.on('readFile', (fileContent)=>{})` 
         
     `Bridge.writeFile(content)`： 创建文件
-        接收返回值： `eventEmitter.on('writeFile', (err)=>{})` 
+        接收返回值： `eventListener.on('writeFile', (err)=>{})` 
     
-JS中，通过`eventEmitter.on(方法名, (返回值)=>{})`接受Bridge有返回值方法的返回值。  
+JS中，通过`eventListener.on(方法名, (返回值)=>{})`接受Bridge有返回值方法的返回值。  
 
 ### 打包
 
-1、 `go-bindata -o=asset/asset.go -pkg=asset assets/...`
+1、 `go-bindata -o=asset/asset.go -pkg=asset src/...`
 
 2、 `xgo --targets=darwin-10.10/.,windows/. .`

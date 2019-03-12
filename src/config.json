@@ -1,0 +1,10 @@
+{
+  "name": "Light",
+  "width": 680,
+  "height": 540,
+  "title": "LightApp",
+  "resizeable": true,
+  "debug": true,
+  "icon": "Light.icns",
+  "output_path": "/Users/neil/Desktop/"
+}

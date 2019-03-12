@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LightApp</title>
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+<div>
+    <div class="bridge_props">
+        <button id="os">Bridge.os</button>
+        <button id="arch">Bridge.arch</button>
+        <button id="hostname">Bridge.hostname</button>
+        <button id="tempPath">Bridge.tempPath</button>
+        <button id="currentPath">Bridge.currentPath</button>
+    </div>
+    <div class="bridge_methods">
+        <button id="message">show message</button>
+        <button id="info">show info</button>
+        <button id="warn">show warn</button>
+        <button id="error">show error</button>
+        <input type="text" id="envKey" placeholder="env key">
+        <input type="text" id="envValue" placeholder="env value">
+        <button id="setEnv">setEnv</button>
+        <input type="text" id="getEnvKey" placeholder="env key">
+        <button id="getEnv">getEnv</button>
+        <button id="setColor">change titleBar color</button>
+        <button id="fullScreen">fullscreen</button>
+        <button id="unFullScreen">unFullscreen</button>
+        <input type="text" id="dirPath" placeholder="dir path">
+        <button id="makeDir">makeDir</button>
+        <input type="text" id="filePath" placeholder="file path">
+        <button id="remove">remove file</button>
+        <input type="text" id="rmDirPath" placeholder="dir path">
+        <button id="removeAll">remove dir</button>
+        <input type="text" id="oldpath" placeholder="old path">
+        <input type="text" id="newpath" placeholder="new path">
+        <button id="renameFile">renameFile</button>
+        <button id="openFile">openFile</button>
+        <button id="openDir">openDir</button>
+        <input type="text" id="readpath" placeholder="read file path">
+        <div>
+            <button id="readFile">readFile</button>
+            file content: <span id="fileContent"></span>
+        </div>
+        <button id="writeFile">writeFile</button>
+    </div>
+</div>
+<script src="src/js/main.js"></script>
+</body>
+</html>
