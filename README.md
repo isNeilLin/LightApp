@@ -57,13 +57,21 @@
 
     *没有返回值*
     `Bridge.init()`： 初始化Bridge，调用这个方法之后，Bridge的属性生效。
+    
     `Bridge.exit()`:  退出程序
+    
     `Bridge.message(title, content)`： 消息弹窗
+    
     `Bridge.info(title, content)`： 信息弹窗
+    
     `Bridge.warn(title, content)`： 警告弹窗
+    
     `Bridge.error(title, content)`： 错误弹窗
+    
     `Bridge.setEnv(key, value)`: 设置环境变量
+    
     `Bridge.setColor(r, g, b, a)`: 设置标题栏颜色
+    
     `Bridge.setFullScreen(bool)`: 设置是否全屏
     
     *有返回值*
