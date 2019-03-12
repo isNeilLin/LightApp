@@ -194,7 +194,10 @@ func (bridge *Bridge)  ReadFile(path string){
 
 func (bridge *Bridge)  WriteFile(content string){
   path := W.Dialog(webview.DialogTypeSave, 0, "选择路径", "")
-  ioutil.WriteFile(path, []byte(content), 0644)
+  err := ioutil.WriteFile(path, []byte(content), 0644)
+  if err != nil {
+    ExcuteJS(fmt.Sprintf("window.eventEmitter.emit('writeFile', '%v')", err))
+  }
 }
 
 
