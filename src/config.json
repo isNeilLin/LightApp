@@ -6,5 +6,15 @@
   "resizeable": true,
   "debug": true,
   "icon": "Light.icns",
-  "output_path": "/Users/neil/Desktop/"
+  "output_path": "./build/",
+  "buildTarget": [
+    {
+      "os": "darwin",
+      "arch": "amd64"
+    },
+    {
+      "os": "windows",
+      "arch": "amd64"
+    }
+  ]
 }

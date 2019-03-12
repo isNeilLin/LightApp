@@ -43,7 +43,17 @@
   "resizeable": true,       // 是否可缩放
   "debug": true,            // debug模式
   "icon": "Light.icns",     // App图标路径
-  "output_path": "/Users/neil/Desktop/"  // 输出路径
+  "output_path": "./build/"  // 输出路径
+  "buildTarget": [
+    {
+      "os": "darwin",       // 打包平台
+      "arch": "amd64"       // 平台架构
+    },
+    {
+      "os": "windows",      // 打包平台
+      "arch": "amd64"       // 平台架构
+    }
+  ]
 }
 ```
 
@@ -122,6 +132,4 @@ JS中，通过`eventListener.on(方法名, (返回值)=>{})`接受Bridge有返�
 
 1、 `go-bindata -o=asset/asset.go -pkg=asset src/...`
 
-2、 `xgo -out ./build/ --targets=darwin-10.10/.,windows/. .`
-
-> [xgo文档](https://github.com/karalabe/xgo)
+2、 `node build.js`
