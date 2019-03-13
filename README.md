@@ -57,6 +57,9 @@
 }
 ```
 
+> 可通过`window.Config.data`访问config.json中的属性
+
+
 **Bridge接口**
 
 - 属性

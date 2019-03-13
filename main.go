@@ -267,5 +267,6 @@ window.eventListener = {
   })
   bridge.Init(config)
   W.Bind("Bridge", &bridge)
+  W.Bind("Config", &config)
   W.Run()
 }
